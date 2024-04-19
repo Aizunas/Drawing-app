@@ -4,7 +4,7 @@ function ColourPalette() {
 	this.colours = [
         "black", "silver", "gray", "white", "maroon", "red", "purple",
 		"orange", "pink", "fuchsia", "green", "lime", "olive", "yellow", "navy",
-		"blue", "teal", "aqua"
+		"blue", "teal", "aqua", "MediumPurple","MistyRose","PowderBlue","SteelBlue","Sienna","Salmon"
 	];
 	//make the start colour be black
 	this.selectedColour = "black";
