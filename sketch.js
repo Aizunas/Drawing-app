@@ -26,6 +26,7 @@ function setup() {
 	toolbox.addTool(new sprayCanTool());
 	toolbox.addTool(new mirrorDrawTool());
 	toolbox.addTool(new rubberTool());
+	toolbox.addTool(new squareTool()); 
     
 	background(255);
 
