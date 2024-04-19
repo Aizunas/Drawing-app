@@ -28,7 +28,7 @@ function squareTool () {
       else{
 			previousMouseX = -1;
 			previousMouseY = -1;
-		}
+		} 
     }
 
   
