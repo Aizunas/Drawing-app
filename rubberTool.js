@@ -5,6 +5,8 @@ function rubberTool() {
     // Mouse coordinates for the previous draw
     var previousMouseX = -1;
     var previousMouseY = -1;
+// variable for ruber slider 
+    let rubberSize = 10
 
     this.draw = function() {
         // Display the last saved state of pixels
@@ -20,7 +22,7 @@ function rubberTool() {
             // Otherwise, erase the line between the previous and current mouse positions
             else {
                 stroke(255); // Set stroke color to white (erase color)
-                strokeWeight(10); // Set stroke weight to a larger value for erasing
+                strokeWeight(rubberSize); // Set stroke weight to a larger value for erasing
                 line(previousMouseX, previousMouseY, mouseX, mouseY);
                 previousMouseX = mouseX;
                 previousMouseY = mouseY;
@@ -44,6 +46,12 @@ function rubberTool() {
 
     // No options for rubber tool
     this.populateOptions = function() {
-        select(".options").html("");
+        // select(".options").html("");
+        // Create a slider element for changing rubber size
+        var slider = createSlider(1, 50, rubberSize); // Minimum size 1, maximum size 50, default size rubberSize
+        slider.parent(".options");
+        // Event handler for slider change
+        slider.input(function() {
+            rubberSize = slider.value(); // Update rubber size
     };
 }
