@@ -5,7 +5,7 @@ function rubberTool() {
     // Mouse coordinates for the previous draw
     var previousMouseX = -1;
     var previousMouseY = -1;
-    var slider; 
+    //var slider; 
 
 
     this.draw = function() {
@@ -47,14 +47,14 @@ function rubberTool() {
     // No options for rubber tool
     this.populateOptions = function() {
         select(".options").html("");
-    var slider = createSlider(1, 30, 1, 0.5); // Minimum size 1, maximum size 30, default size 1, step size 0.5
-    slider.position(10, 10);
-    slider.size(100, 10); // Set the size of the slider
-    slider.parent(".options");
+    // var slider = createSlider(1, 30, 1, 0.5); // Minimum size 1, maximum size 30, default size 1, step size 0.5
+    // slider.position(10, 10);
+    // slider.size(100, 10); // Set the size of the slider
+    // slider.parent(".options");
     
-    // Event handler for slider change
-    slider.input(function() {
-        // Update rubber size or perform any other action as needed
-        console.log("Slider value changed:", slider.value());
+    // // Event handler for slider change
+    // slider.input(function() {
+    //     // Update rubber size or perform any other action as needed
+    //     console.log("Slider value changed:", slider.value());
 };
 }
