@@ -46,7 +46,7 @@ function rubberTool() {
 
     // No options for rubber tool
     this.populateOptions = function() {
-        // select(".options").html("");
+        select(".options").html("");
         // Create a slider element for changing rubber size
         var slider = createSlider(1, 50, rubberSize); // Minimum size 1, maximum size 50, default size rubberSize
         slider.parent(".options");
