@@ -42,6 +42,6 @@ function squareTool() {
         previousMouseY = -1;
     };
 
-    // No options for rubber tool
+    // No options for square tool
     this.populateOptions = function() {
         select(".options").html("");
