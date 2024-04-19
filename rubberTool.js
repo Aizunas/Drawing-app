@@ -50,6 +50,7 @@ function rubberTool() {
     var slider = createSlider(1, 30, 1, 0.5); // Minimum size 1, maximum size 30, default size 1, step size 0.5
     slider.position(10, 10);
     slider.size(100, 10); // Set the size of the slider
+    slider.parent(".options");
     
     // Event handler for slider change
     slider.input(function() {
