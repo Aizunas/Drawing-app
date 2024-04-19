@@ -5,6 +5,9 @@ function rubberTool() {
     // Mouse coordinates for the previous draw
     var previousMouseX = -1;
     var previousMouseY = -1;
+    slider = CreateSlider(1,30,1,0.5);
+    slider.position(10,10);
+    slider.size(5,5); 
 
     this.draw = function() {
         // Display the last saved state of pixels
