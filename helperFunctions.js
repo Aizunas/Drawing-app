@@ -18,4 +18,14 @@ function HelperFunctions() {
 	select("#saveImageButton").mouseClicked(function() {
 		saveCanvas();
 	});
+
+	 //Changes the cursor to a cross
+    this.cross = function(){
+        cursor(CROSS);
+    }
+
+    //Changes the cursor to an arrow
+    this.arrow = function() {
+        cursor(ARROW)
+    }
 }
