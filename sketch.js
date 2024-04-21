@@ -21,12 +21,15 @@ function setup() {
 	toolbox = new Toolbox();
 
 	//add the tools to the toolbox.
-	toolbox.addTool(new FreehandTool());
+    toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new sprayCanTool());
 	toolbox.addTool(new mirrorDrawTool());
-	toolbox.addTool(new rubberTool());
-	toolbox.addTool(new squareTool()); 
+
+	toolbox.addTool(new squareTool());
+    toolbox.addTool(new rubberTool());
+  
+    
     
 	background(255);
 
@@ -43,3 +46,4 @@ function draw() {
 		alert("it doesn't look like your tool has a draw method!");
 	}
 }
+
