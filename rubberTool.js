@@ -1,60 +1,43 @@
-function rubberTool() {
-    this.name = "rubber";
-    this.icon = "assets/rubber.jpg";
+function rubberTool(){
+	// Set an icon and a name for the object
+	this.icon = "assets/rubber.jpg";
+	this.name = "rubber";
 
-    // Mouse coordinates for the previous draw
-    var previousMouseX = -1;
-    var previousMouseY = -1;
-    //var slider; 
+	// To smoothly draw, we'll draw a line from the previous mouse location
+	// to the current mouse location. The following values store
+	// the locations from the last frame. They are -1 to start with because
+	// we haven't started drawing yet.
+	var previousMouseX = -1;
+	var previousMouseY = -1;
 
+	this.draw = function(){
+		push(); // Save the current drawing style
 
-    this.draw = function() {
-        // Display the last saved state of pixels
-        updatePixels();
+		// If the mouse is pressed
+		if(mouseIsPressed){
+			// Check if the previousX and Y are -1. Set them to the current
+			// mouse X and Y if they are.
+			if (previousMouseX == -1){
+				previousMouseX = mouseX;
+				previousMouseY = mouseY;
+			}
+			// If we already have values for previousX and Y, draw a line from 
+			// there to the current mouse location
+			else{
+				stroke(255);// Set stroke color to white
+				strokeWeight(5);
+				line(previousMouseX, previousMouseY, mouseX, mouseY);
+				previousMouseX = mouseX;
+				previousMouseY = mouseY;
+			}
+		}
+		// If the user has released the mouse, reset the previousMouse values 
+		// back to -1.
+		else{
+			previousMouseX = -1;
+			previousMouseY = -1;
+		}
 
-        // Erase the drawing if the mouse is pressed
-        if (mouseIsPressed) {
-            // If the previous values are -1, set them to the current mouse location
-            if (previousMouseX == -1) {
-                previousMouseX = mouseX;
-                previousMouseY = mouseY;
-            }
-            // Otherwise, erase the line between the previous and current mouse positions
-            else {
-                stroke(255); // Set stroke color to white (erase color)
-                strokeWeight(10); // Set stroke weight to a larger value for erasing
-                line(previousMouseX, previousMouseY, mouseX, mouseY);
-                previousMouseX = mouseX;
-                previousMouseY = mouseY;
-            }
-        } else {
-            // Reset previous mouse coordinates
-            previousMouseX = -1;
-            previousMouseY = -1;
-        }
-
-        // After the drawing is done, save the pixel state
-        loadPixels();
-    };
-
-    // Reset the tool state when it's deselected
-    this.unselectTool = function() {
-        // Reset previous mouse coordinates
-        previousMouseX = -1;
-        previousMouseY = -1;
-    };
-
-    // No options for rubber tool
-    this.populateOptions = function() {
-        select(".options").html("");
-    // var slider = createSlider(1, 30, 1, 0.5); // Minimum size 1, maximum size 30, default size 1, step size 0.5
-    // slider.position(10, 10);
-    // slider.size(100, 10); // Set the size of the slider
-    // slider.parent(".options");
-    
-    // // Event handler for slider change
-    // slider.input(function() {
-    //     // Update rubber size or perform any other action as needed
-    //     console.log("Slider value changed:", slider.value());
-};
+		pop(); // Restore the previous drawing style
+	};
 }
