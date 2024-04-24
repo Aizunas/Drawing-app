@@ -30,6 +30,7 @@ function setup() {
     	toolbox.addTool(new rubberTool());
 	toolbox.addTool(new highlighterTool());
    	toolbox.addTool(new starTool());
+	toolbox.addTool(new textbox());
   
     
     
