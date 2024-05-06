@@ -46,7 +46,6 @@ function squareTool() {
             // resets fill mode
             colourP.fillMode = false;
         }
-
         // resets cursor
         helpers.arrow();
     };
