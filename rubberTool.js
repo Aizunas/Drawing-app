@@ -1,43 +1,42 @@
+// object to represent the rubber tool
 function rubberTool(){
-	// Set an icon and a name for the object
-	this.icon = "assets/rubber.jpg";
-	this.name = "rubber";
+    // set an icon and a name for the object
+    this.icon = "assets/rubber.jpg";
+    this.name = "rubber";
 
-	// To smoothly draw, we'll draw a line from the previous mouse location
-	// to the current mouse location. The following values store
-	// the locations from the last frame. They are -1 to start with because
-	// we haven't started drawing yet.
-	var previousMouseX = -1;
-	var previousMouseY = -1;
+    // variables to store previous mouse positions
+    var previousMouseX = -1;
+    var previousMouseY = -1;
 
-	this.draw = function(){
-		push(); // Save the current drawing style
+    // draw function to implement the rubber tool
+    this.draw = function(){
+        push(); // save the current drawing style
 
-		// If the mouse is pressed
-		if(mouseIsPressed){
-			// Check if the previousX and Y are -1. Set them to the current
-			// mouse X and Y if they are.
-			if (previousMouseX == -1){
-				previousMouseX = mouseX;
-				previousMouseY = mouseY;
-			}
-			// If we already have values for previousX and Y, draw a line from 
-			// there to the current mouse location
-			else{
-				stroke(255);// Set stroke color to white
-				strokeWeight(5);
-				line(previousMouseX, previousMouseY, mouseX, mouseY);
-				previousMouseX = mouseX;
-				previousMouseY = mouseY;
-			}
-		}
-		// If the user has released the mouse, reset the previousMouse values 
-		// back to -1.
-		else{
-			previousMouseX = -1;
-			previousMouseY = -1;
-		}
+        // if the mouse is pressed
+        if(mouseIsPressed){
+            // check if the previousX and Y are -1
+            if (previousMouseX == -1){
+                previousMouseX = mouseX;
+                previousMouseY = mouseY;
+            }
+            else{
+                // sets stroke color to white
+                stroke(255);
+                // sets stroke weight to define thickness
+                strokeWeight(5);
+                // draws a line from previous mouse position to current mouse position
+                line(previousMouseX, previousMouseY, mouseX, mouseY);
+                // updates previous mouse positions
+                previousMouseX = mouseX;
+                previousMouseY = mouseY;
+            }
+        }
+        // if the mouse is released, reset previousMouseX and previousMouseY to -1
+        else{
+            previousMouseX = -1;
+            previousMouseY = -1;
+        }
 
-		pop(); // Restore the previous drawing style
-	};
+        pop(); // restore the previous drawing style
+    };
 }
