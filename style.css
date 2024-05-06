@@ -24,9 +24,9 @@ html, body {
   .sideBarItem{
 	  max-height: 50px;
 	  max-width: 50px;
-	  padding:20px;
-	
+	  padding:5px;
   }
+
   
   .sideBarItem img{
 	  max-height: 50px;
@@ -45,7 +45,8 @@ html, body {
 	  grid-area: options;
 	  padding: 15px;
   }
-  
+
+
   .colourSwatches{
 	  box-sizing: border-box;
 	  width: 40px;
@@ -60,7 +61,7 @@ html, body {
 	  .wrapper {
 		  display: grid;
 		  height: 100%;
-		  grid-template-columns: 100px 550px  minmax(500px, 1fr);
+		  grid-template-columns: 70px 550px  minmax(500px, 1fr);
 		  grid-template-rows: 45px minmax(500px, 1fr) 160px;
 		  grid-template-areas:
 				 "header header header"
