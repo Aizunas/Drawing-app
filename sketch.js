@@ -12,27 +12,28 @@ function setup() {
 	canvasContainer = select('#content');
 	var c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
 	c.parent("content");
+    
+    
 
 	//create helper functions and the colour palette
-   	 helpers = new HelperFunctions();
+        helpers = new HelperFunctions();
 	colourP = new ColourPalette();
 
 	//create a toolbox for storing the tools
 	toolbox = new Toolbox();
 
 	//add the tools to the toolbox.
-   	 toolbox.addTool(new FreehandTool());
+        toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new sprayCanTool());
 	toolbox.addTool(new mirrorDrawTool());
 
 	toolbox.addTool(new squareTool());
-    	toolbox.addTool(new rubberTool());
-	toolbox.addTool(new highlighterTool());
+        toolbox.addTool(new rubberTool());
+    	toolbox.addTool(new highlighterTool());
    	toolbox.addTool(new starTool());
-	toolbox.addTool(new textbox());
-  
-    
+    	toolbox.addTool(new Scissors());
+   	toolbox.addTool(new spiraTool());
     
 	background(255);
 
@@ -49,4 +50,5 @@ function draw() {
 		alert("it doesn't look like your tool has a draw method!");
 	}
 }
+
 
