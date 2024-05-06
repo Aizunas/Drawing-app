@@ -1,5 +1,5 @@
 // object to represent the scissors tool
-function scissors() {
+function Scissors() {
     // sets name and icon for the scissors tool
     this.name = "scissors";
     this.icon = "assets/scissors.jpg";
