@@ -1,47 +1,52 @@
-function highlighterTool(){
+// function to draw with the highlighter
+function highlighterTool() {
+    // icon for the tool
     this.icon = "assets/highlighter.jpg";
+    // name of the tool
     this.name = "highlighter";
 
+    // variables to store previous mouse positions
     var previousMouseX = -1;
     var previousMouseY = -1;
 
+    // draw function to implement the highlighting effect
     this.draw = function() {
-        push(); // Save the current drawing style
+        // save the current drawing style
+        push();
 
-        // If the mouse is pressed
+        // if the mouse is pressed
         if (mouseIsPressed) {
-            // Check if the previousX and Y are -1. Set them to the current
-            // mouse X and Y if they are.
+            // if previous mouse positions are not set, sets them to current mouse positions
             if (previousMouseX == -1) {
                 previousMouseX = mouseX;
                 previousMouseY = mouseY;
             }
-            // If we already have values for previousX and Y, draw a line
-            // between the previous and current mouse positions to mimic a highlighter effect
+            // if we have previous positions, draws a line between previous and current positions
             else {
-                // Sample color from canvas at current mouse position
+                // gets the color at the current mouse position
                 var currentColor = colourP.selectedColour;
 
-                // Set stroke color to the sampled color with reduced transparency
-                stroke(red(currentColor), green(currentColor), blue(currentColor), 100); // Setting transparency to 100
+                // sets stroke color to sampled color with reduced transparency
+                stroke(red(currentColor), green(currentColor), blue(currentColor), 100);
 
-                strokeWeight(20); // Increase stroke weight for a thicker highlighter effect
-                
-                // Draw a line between previous and current mouse positions to create the highlighter effect
+                // increases thickness for a highlighter effect
+                strokeWeight(20);
+
+                // draws a line between previous and current mouse positions to simulate highlighting
                 line(previousMouseX, previousMouseY, mouseX, mouseY);
-                
-                // Update previous mouse position
+
+                // updates previous mouse position
                 previousMouseX = mouseX;
                 previousMouseY = mouseY;
             }
         }
-        // If the user has released the mouse, reset the previousMouse values 
-        // back to -1.
+        // if the user has released the mouse, resets previousMouse values to -1
         else {
             previousMouseX = -1;
             previousMouseY = -1;
         }
 
-        pop(); // Restore the previous drawing style
+        // restores previous drawing style
+        pop();
     };
 }
