@@ -9,23 +9,23 @@ function starTool() {
     var noFillButton;
     var self = this;
 
-    // Function to add option for no fill
+    // adds option for no fill
     this.populateOptions = function() {
-        if (self.name == "star") {
-            // Create a button for no fill option
+        if(self.name == "star"){
+            //button for fill or no fill
             select(".options").html(
-                "<button id='noFillButton'> No Fill </button>"
-            );
+                "<button id = 'noFillButton'> No Fill </button>");
 
-            // Handle button click
-            select("#noFillButton").mouseClicked(function() {
+            select("#noFillButton").mouseClicked(function(){
                 noFillButton = select("#" + this.elt.id);
 
-                // Toggle fill mode and update button text
-                if (colourP.fillMode == true) {
-                    fill(colourP.selectedColour);
+                //starts with off with the button saying no fill, and draws a star with a fill colour.
+                if(colourP.fillMode == true) {
+                    fill(colourP.selectedColour)
                     colourP.fillMode = false;
                     noFillButton.html("No Fill");
+
+                //no fill button is pressed, the button will change to "fill" instead 
                 } else {
                     noFill();
                     colourP.fillMode = true;
@@ -33,47 +33,49 @@ function starTool() {
                 }
             });
         }
-    };
 
-    // Function to clear options and reset fill mode
+	};
+    
+
+    // clears options and reset fill mode
     this.unselectTool = function() {
-        if (self.name == "star") {
-            // Clear options
+        if (self.name === "star") {
+            // clears options
             select(".options").html("");
 
-            // Reset fill mode
+            
             colourP.fillMode = false;
         }
 
-        // Reset cursor
+       
         helpers.arrow();
     };
 
-    // Function to draw the star
+    // function to draw the star
     this.draw = function() {
-        // Change cursor
+        // changes cursor
         helpers.cross();
 
-        // Check if mouse is pressed
+        //is mouse pressed?
         if (mouseIsPressed) {
-            // Start drawing if not already drawing
-            if (startMouseX == -1) {
+            // starts drawing if not already
+            if (startMouseX === -1) {
                 startMouseX = mouseX;
                 startMouseY = mouseY;
                 drawing = true;
-                loadPixels(); // Save current state
+                loadPixels(); // save current canvas state
             } else {
-                // Update screen with saved state
+                // updates screen
                 updatePixels();
 
-                // Calculate distance between start and current mouse position
+                // calculates distance between start and current mouse position
                 var distance = dist(startMouseX, startMouseY, mouseX, mouseY);
 
-                // Draw the star
+                // draws the star
                 drawStar(startMouseX, startMouseY, distance / 2, distance);
             }
         } else if (drawing) {
-            // Save current state and reset drawing parameters
+            // saves the current state and reset drawing parameters
             loadPixels();
             drawing = false;
             startMouseX = -1;
@@ -81,7 +83,7 @@ function starTool() {
         }
     };
 
-    // Function to draw a star shape
+    // draws a star shape
     function drawStar(x, y, radius1, radius2) {
         var angle = TWO_PI / 5;
         var halfAngle = angle / 2.0;
