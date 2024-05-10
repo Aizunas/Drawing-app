@@ -36,7 +36,7 @@ html, body {
   .colourPalette{
 	  grid-area: colourP;
 	  display:grid;
-	  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));	  flex-direction:grid;
+	  grid-template-columns: repeat(auto-fill, minmax(49px, 1fr));	  flex-direction:grid;
 	  flex-flow: wrap;
 	  cursor:pointer;
   }
